@@ -3,8 +3,8 @@ services:
     image: postgres:16
     container_name: bi_postgres
     environment:
-      POSTGRES_USER: bi
-      POSTGRES_PASSWORD: bi_password_2590
+      POSTGRES_USER: bi_stack
+      POSTGRES_PASSWORD: bi_password_change_it
       POSTGRES_DB: metabase
     volumes:
       - pgdata:/var/lib/postgresql/data
@@ -21,8 +21,8 @@ services:
       MB_DB_HOST: postgres
       MB_DB_PORT: 5432
       MB_DB_DBNAME: metabase
-      MB_DB_USER: tonyshilovsky@gmail.com
-      MB_DB_PASS: bigpenis2590
+      MB_DB_USER: db_user
+      MB_DB_PASS: db_password_change_it
     ports:
       - "3000:3000"
     restart: unless-stopped
