@@ -1,0 +1,18 @@
+# secrets
+.env
+*.env
+
+# postgres data
+pgdata/
+**/pgdata/
+
+# jupyter
+.ipynb_checkpoints/
+
+# system
+.DS_Store
+Thumbs.db
+
+# python
+__pycache__/
+*.pyc

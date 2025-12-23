@@ -1,0 +1,44 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: bi_postgres
+    environment:
+      POSTGRES_USER: bi
+      POSTGRES_PASSWORD: bi_password_2590
+      POSTGRES_DB: metabase
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d
+    restart: unless-stopped
+
+  metabase:
+    image: metabase/metabase:latest
+    container_name: bi_metabase
+    depends_on:
+      - postgres
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_HOST: postgres
+      MB_DB_PORT: 5432
+      MB_DB_DBNAME: metabase
+      MB_DB_USER: tonyshilovsky@gmail.com
+      MB_DB_PASS: bigpenis2590
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+
+  jupyter:
+    image: jupyter/datascience-notebook:latest
+    container_name: bi_jupyter
+    depends_on:
+      - postgres
+    environment:
+      JUPYTER_TOKEN: "change-me-token"
+    ports:
+      - "8899:8888"
+    volumes:
+      - /srv/samba/share:/home/jovyan/share
+    restart: unless-stopped
+
+volumes:
+  pgdata:
