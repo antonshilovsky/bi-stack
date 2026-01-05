@@ -5,11 +5,11 @@
 ## Состав
 - PostgreSQL 16 — хранилище данных
 - JupyterLab — загрузка и обработка CSV/Excel
-- Metabase — визуализация и дашборды
+- Superset — визуализация и дашборды
 - Samba — доступ к данным с Windows
 
 ## Архитектура
-Windows → Samba → Jupyter → PostgreSQL → Metabase
+Windows → Samba → Jupyter → PostgreSQL → Superset
 
 ## Запуск
 ```bash
@@ -19,6 +19,6 @@ docker compose up -d
 
 Jupyter: http://<server-ip>:8899
 
-Metabase: http://<server-ip>:3000
+Superset: http://<server-ip>:3000
 
 Samba: \<server-ip>\share
