@@ -1,4 +1,4 @@
-# BI Stack (Jupyter + PostgreSQL + Metabase + Samba)
+# BI Stack (Jupyter + PostgreSQL + Superset + Samba)
 
 Домашний BI-сервер на Docker.
 
